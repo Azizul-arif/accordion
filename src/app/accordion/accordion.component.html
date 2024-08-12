@@ -1,0 +1,28 @@
+<div class="container mt-5">
+
+ <div class="accordion accordion-flush"
+  id="accordionFlushExample">
+  <h1 class=" text-center my-3">Questions</h1>
+
+  <!--dynamic start-->
+  <div class="accordion-item  card shadow p-3 mt-2 bg-white rounded"
+   *ngFor="let item of data; let i=index">
+   <div>
+    <h2 class="accordion-header" [attr.id]="'flush-heading' +i">
+     <button class="accordion-button collapsed" type="button"
+      data-bs-toggle="collapse" [attr.data-bs-target]="'#flush-collapse' +i"
+      aria-expanded="false" [attr.aria-controls]="'flush-collapse'+i">
+      {{item.title}}
+     </button>
+    </h2>
+
+    <div [attr.id]="'flush-collapse'+i" class="accordion-collapse collapse mb-2"
+     [attr.aria-labelledby]="'flush-heading'+i"
+     data-bs-parent="#accordionFlushExample">
+     <div class="accordion-body">{{item.body}}</div>
+    </div>
+   </div>
+  </div>
+  <!--dynamic end-->
+
+ </div>
